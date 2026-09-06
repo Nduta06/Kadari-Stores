@@ -19,6 +19,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/items', function () {
         return view('items.index');
     })->name('items.index');
+
+    Route::get('/stock-in', function () {
+        return view('stock-in.index');
+    })->name('stock-in.index');
 });
 
 require __DIR__.'/auth.php';
