@@ -49,7 +49,8 @@ without formulas to accidentally break.
   movements, sales ledger, reporting queries).
 - **Livewire** + **Blade** + **Tailwind CSS** for a reactive, modern UI
   without a separate JavaScript frontend to maintain.
-- **Vite** for asset bundling and the PWA service worker/manifest.
+- **Vite** for asset bundling. The PWA manifest, icons, service worker, and
+  offline page are plain static files in `public/` (no extra build plugin).
 - **MySQL/SQLite** for storage (SQLite by default for easy local setup).
 
 ## Project structure & branching
@@ -84,3 +85,34 @@ php artisan serve
 Then open the app in a browser on the same network as your phone (or use
 `php artisan serve --host=0.0.0.0`) to test the PWA install prompt on a
 mobile device.
+
+The seeder creates one shop-owner login and the shop's real item
+catalogue, so you can sign in immediately:
+
+- **Email:** `owner@kadaristores.test`
+- **Password:** `password`
+
+(Registration is disabled once that first account exists — this app is
+built for one shop owner, not public sign-up. Change the password from
+the Profile page after first login.)
+
+### Configuration
+
+- `LOW_STOCK_THRESHOLD` (`.env`, default `5`) — remaining quantity at or
+  below which an item shows as "Low" on the Stock Balance page.
+
+### Running tests
+
+```bash
+php artisan test
+```
+
+## Routes
+
+| Page | URL | Purpose |
+|---|---|---|
+| Dashboard | `/dashboard` | Revenue, cost, profit, margin, and the daily/monthly/yearly trend |
+| Items | `/items` | Manage the item catalogue |
+| Stock-In | `/stock-in` | Record deliveries |
+| Sales | `/sales` | Record sales |
+| Stock Balance | `/stock-balance` | Remaining stock and value per item |
