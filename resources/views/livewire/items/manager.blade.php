@@ -56,7 +56,7 @@
         @endforelse
     </div>
 
-    <div class="mt-6 hidden overflow-hidden rounded-lg border border-gray-200 sm:block">
+    <div class="mt-6 hidden overflow-x-auto rounded-lg border border-gray-200 sm:block">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr class="text-left text-xs font-medium uppercase tracking-wider text-gray-500">

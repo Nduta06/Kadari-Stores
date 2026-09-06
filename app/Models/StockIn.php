@@ -49,7 +49,7 @@ class StockIn extends Model
     {
         $stockIn = static::query()
             ->where('item_id', $item->id)
-            ->where('date', '<=', $date)
+            ->whereDate('date', '<=', $date)
             ->orderByDesc('date')
             ->orderByDesc('id')
             ->first();

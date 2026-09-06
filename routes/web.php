@@ -27,6 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/sales', function () {
         return view('sales.index');
     })->name('sales.index');
+
+    Route::get('/stock-balance', function () {
+        return view('stock-balance.index');
+    })->name('stock-balance.index');
 });
 
 require __DIR__.'/auth.php';
