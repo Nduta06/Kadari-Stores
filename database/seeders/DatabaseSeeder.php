@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Shop Owner',
             'email' => 'owner@kadaristores.test',
         ]);
+
+        $this->call(ItemSeeder::class);
     }
 }
