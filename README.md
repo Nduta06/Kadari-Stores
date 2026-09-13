@@ -86,6 +86,10 @@ Then open the app in a browser on the same network as your phone (or use
 `php artisan serve --host=0.0.0.0`) to test the PWA install prompt on a
 mobile device.
 
+For putting the app on a real server (Oracle Cloud Always Free + MySQL),
+including moving your existing SQLite data across without re-entering it,
+see [DEPLOYMENT.md](DEPLOYMENT.md).
+
 The seeder creates one shop-owner login and the shop's real item
 catalogue, so you can sign in immediately:
 
