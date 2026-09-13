@@ -12,7 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Trust the proxy headers from tunnels (ngrok, Cloudflare Tunnel) and
+        // reverse proxies (Nginx/Apache in front of PHP-FPM) so Laravel knows
+        // the original request was HTTPS and generates https:// asset/URL
+        // links instead of http:// ones, which browsers block as mixed
+        // content on an https:// page.
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
